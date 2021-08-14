@@ -6,7 +6,8 @@ import com.example.buildtypes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-//Когда вы выбираете какой-то build, Android Studio генерирует файл, в котором содержатся общие
+
+    //Когда вы выбираете какой-то build, Android Studio генерирует файл, в котором содержатся общие
 //данные о нем. Тут вы можете найти и вашу переменную после комментария. Дело в том, что через
 //Gradle разработчик может сохранить какие-то данные в зависимости от типа сборки. Для этого
 //достаточно указать тип сохраняемой переменной и данные в виде «ключ-значение». В нашем случае
@@ -16,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.textView.text = BuildConfig.TYPE
+        binding.textView.text = getString(R.string.hello)
+        binding.paidButton.setOnClickListener {
+            Toast.makeText(this, "Paid version", Toast.LENGTH_LONG).show()
+        }
     }
 }
